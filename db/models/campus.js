@@ -9,7 +9,7 @@ module.exports = db.define('campus', {
 }, {
   getterMethods: {
     imageURL: function() {
-      return `http://loremflickr.com/400/300(/planet,${this.name}/all`;
+      return `http://loremflickr.com/400/300/planet,${this.name}/all`;
     }
   }
 });

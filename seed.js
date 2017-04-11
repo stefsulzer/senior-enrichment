@@ -1,7 +1,14 @@
-const { db } = require('./db/index');
-const { User, Campus, Student } = require('./db/models/index');
 const Promise = require('bluebird');
-const { FIRST_NAMES, LAST_NAMES, CAMPUSES} = require('./seed_arrays');
+
+// const { User, Campus, Student, db } = require('./db/models');
+const { FIRST_NAMES, LAST_NAMES, CAMPUSES} = require('./seed_data');
+const db  = require('./db/index');
+const { User, Campus, Student } = require('./db/models');
+
+// const Sequelize = require('sequelize');
+
+
+// SEED FILE TO GENERATE RANDOM STUDENTS ON BASIC PLANET CAMPUSES
 
 // this line tests if this code is being run via command line:
 if (module === require.main) {
@@ -9,9 +16,10 @@ if (module === require.main) {
   .then(() =>
     createCampuses())
   .then(campuses => {
-    console.log(campuses);
+    //console.log(campuses);
     return createStudents(campuses);
   })
+  .catch(error => console.error(error))
   .finally(() => db.close());
 }
 
@@ -29,8 +37,7 @@ function createStudents(campuses) {
     })
     .then(student => {
         return student.setCampus(pickRandom(campuses))})
-    .then(student => console.log(student))
-    .catch(console.log)
+    .catch(error => console.error(error))
   );
   return Promise.all(sendingOffStudents);
 }

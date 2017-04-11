@@ -1,6 +1,6 @@
 'use strict';
 var Sequelize = require('sequelize');
-// var db = require('../index.js');
+//var db = require('../index.js');
 
 // Require all the models
 	// Running each model (i.e. table) module (i.e. file) registers each model into Sequelize so any other part of the application could call Sequelize.model('user') OR Sequelize.models.user to get access to the `user` model.
@@ -12,4 +12,4 @@ const Student = require('./student');
 
 Student.belongsTo(Campus);
 
-module.exports = {User, Campus, Student };
+ module.exports = {User, Campus, Student };
