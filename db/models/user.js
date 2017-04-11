@@ -1,11 +1,11 @@
 'use strict';
-var Sequelize = require('sequelize')
-var db = require('../index.js')
+var Sequelize = require('sequelize');
+var db = require('../index.js');
 
 
 module.exports = db.define('user', {
   name: Sequelize.STRING,
-  admin: { type: Sequelize.BOOL,
+  admin: { type: Sequelize.BOOLEAN,
     DefaultValue: false }
 
-})
+});
