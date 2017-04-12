@@ -1,5 +1,6 @@
 const students = require('express').Router();
 const db = require('../db/index');
+const { User, Campus, Student }  = require('../db/models/index');
 
 // STUDENT RELATED ROUTES
 
@@ -30,9 +31,31 @@ students.get('/', function(_, res, next) {
   .catch(next);
 });
 
-// GET ONE CAMPUS BY ID
+// GET ONE STUDENT BY ID
 students.get('/:studentId', function(req, res, next) {
   res.send(req.student);
+});
+
+// ADD A STUDENT
+students.post('/', function(req, res, next) {
+  Campus.create(req.body)
+  .then(campus => res.status(201).send(campus))
+  .catch(next);
+});
+
+// UPDATE A STUDENT
+students.put('/:id', function(req, res, next) {
+  req.campus.update({
+    where: req.body
+  })
+  .then(campus => res.status(201).send(campus))
+  .catch(next);
+});
+
+// DELETE A STUDENT
+students.delete('/:id', function(req, res, next) {
+  req.campus.destroy()
+  .catch(next);
 });
 
 module.exports = students;

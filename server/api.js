@@ -11,6 +11,9 @@ api.get('/hello', (req, res) => res.send({hello: 'world'}));
 
 
 api.use('/campuses', require('./campuses'))
-   .use('/sudents', require('./students'));
+   .use('/students', require('./students'));
+
+
+api.use((err, req, res, next) => res.send(err));
 
 module.exports = api;

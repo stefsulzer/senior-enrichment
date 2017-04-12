@@ -1,30 +1,18 @@
-import React from 'react'
 
-// APP CONTAINS THE VARIABLE FRAME, HENCE REACT ROUTER
-import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 'react-router'
+import React, { Component } from 'react'
 
-// PAIRED COMPONENTS AND DISPATCHERS
-import Campuses from '../components/Campuses'
-import { getCampuses } from '../reducers/index'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/Navbar.jsx'
 
+export default class App extends Component {
 
-function App() {
-
-  return (
-          <div>
-            <Navbar/>
-            <Router history={browserHistory}>
-              <Route path='/campuses' component={Campuses} onEnter={onCampusesRender}/>
-
-            </Router>
-          </div>
-          )
+// PROPS.CHILDREN HERE IS REACT ROUTER, NOT REACT. RIGHT...?
+  render() {
+    return (
+            <div>
+              <Navbar />
+              {this.props.children}
+            </div>
+            )
+    }
 }
 
-
-// ON ENTERS FOR APP
-
-function onCampusesRender(nextRouterState) {
-  store.dispatch(getCampuses());
-}
