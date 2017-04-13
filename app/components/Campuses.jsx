@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 class Campuses extends Component {
   constructor() {
     super()
-
-
   }
 
   render() {

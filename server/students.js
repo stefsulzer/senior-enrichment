@@ -24,7 +24,7 @@ students.param('studentId', function(req, _, next, id) {
 
 // GET ALL STUDENTS
 students.get('/', function(_, res, next) {
-  Student.findAll()
+  Student.findAll({include: [ Campus ]})
   .then(students => {
     res.send(students);
   })

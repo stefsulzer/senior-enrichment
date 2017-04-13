@@ -16,7 +16,7 @@ module.exports = db.define('student', {
       return `${this.firstName.toLowerCase()}.${this.lastName.toLowerCase()}@hamilton.edu`;
     },
     imageURL: function() {
-      return `http://loremflickr.com/300/300/person,${this.firstName}/all`;
+      return `http://loremflickr.com/300/300/portrait,${this.firstName}/all`;
     }
   }
 });

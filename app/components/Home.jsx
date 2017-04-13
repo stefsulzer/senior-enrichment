@@ -7,11 +7,11 @@ function Home() {
             <h1>Welcome to The Margaret Hamilton Interplanetary Academy of JavaScript</h1>
           <hr/>
             <div>
-              <img src="http://loremflickr.com/800/1000/solar,system/all"/>
+              <img src="http://loremflickr.com/1000/800/solar,system,planet/all"/>
               <hr/>
-              <img src="http://loremflickr.com/800/1000/academy,campus/all"/>
+              <img src="http://loremflickr.com/1000/800/academy,campus,building/all"/>
               <hr/>
-              <img src="http://loremflickr.com/800/1000/margaret,hamilton/all"/>
+              <img src="http://loremflickr.com/1000/800/hamilton,nasa/all"/>
             </div>
           </div>
           )

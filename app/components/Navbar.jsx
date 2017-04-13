@@ -6,10 +6,10 @@ function Navbar(props) {
 
   return (
           <div>
-            <span> Hamilton Acadamy Profiles:  </span>
-            <Link to='/campuses'> Campuses </Link>
-            <span/>
-            <Link to='/students'> Students </Link>
+            <span>Hamilton Acadamy Profiles: </span>
+            <Link to='/campuses'>Campuses</Link>
+            <span>  </span>
+            <Link to='/students'>Students</Link>
 
           </div>
           )

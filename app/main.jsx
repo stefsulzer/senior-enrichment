@@ -12,27 +12,36 @@ import { Router, Route, Link, IndexRoute, hashHistory, browserHistory } from 're
 
 // PAIRED COMPONENTS AND DISPATCHERS
 import Campuses from './components/Campuses.jsx'
-import { getCampuses } from './reducers/index'
+import { getCampuses, getStudents } from './reducers/index'
 import Home from './components/Home.jsx'
+import Students from './components/Students'
+import Student from './components/Student'
 
 // ON ENTERS FOR TRIGGERING DISPATCHERS
-function onCampusesRender(nextRouterState) {
+function onAppEnter(nextRouterState) {
   store.dispatch(getCampuses());
+  store.dispatch(getStudents());
 }
+function onStudentsRender(nextRouterState) {
 
-//
+}
 
 // ROUTE CONFIGURATION: APP CONTAINS THE ALWAYS RENDERED COMPS PLUS VARIABLE PATH COMPONENTS AS CHILDREN
 render (
   <Provider store={ store }>
     <Router history={ browserHistory }>
-      <Route path='/' component={ App } >
+      <Route path='/' component={ App } onEnter={ onAppEnter }>
         <IndexRoute component={ Home } />
-        <Route path='campuses' component={ Campuses } onEnter={onCampusesRender} />
+        <Route path='campuses' component={ Campuses } />
+         <Route path='students(/:id)' component={Students} >
+            {/*<Route path=':id' component={ Student } ></Route>*/}
+         </Route>
+
+
       </Route>
     </Router>
   </Provider>,
   document.getElementById('main')
 )
 
-        /* {<Route path='students' component={Students} onEnter={} />} */
+
