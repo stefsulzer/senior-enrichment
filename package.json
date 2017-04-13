@@ -8,7 +8,7 @@
     "build": "webpack",
     "build-watch": "webpack -w",
     "start": "nodemon server/start.js",
-    "seed": "nodemon seed.js"
+    "seed": "node seed.js"
   },
   "keywords": [
     "react",

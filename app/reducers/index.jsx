@@ -7,6 +7,8 @@ import axios from 'axios';
 // TYPES
 const GOT_CAMPUSES = 'GOT_CAMPUSES';
 const GOT_STUDENTS = 'GOT_STUDENTS';
+const SET_EDITABLE = 'SET_EDITABLE';
+// const UPDATE_STUDENT = 'UPDATE_STUDENT';
 
 // ACTION CREATORS
 function gotCampuses(campuses) {
@@ -21,6 +23,17 @@ function gotStudents(students) {
     students
   }
 }
+export function setEditable() {
+  return {
+    type: SET_EDITABLE,
+  }
+}
+// function updateStudent() {
+//   return {
+//     type: UPDATE_STUDENT,
+
+//   }
+// }
 
 // DISPATCHERS
 export function getCampuses() {
@@ -42,7 +55,8 @@ export function getStudents() {
 
 const initialState = {
   campuses: [],
-  students: []
+  students: [],
+  edit: false
 }
 
 const rootReducer = function(state = initialState, action) {
@@ -53,6 +67,9 @@ const rootReducer = function(state = initialState, action) {
       break;
     case GOT_STUDENTS:
       newState.students = action.students;
+      break;
+    case SET_EDITABLE:
+      newState.edit = true;
       break;
     default:
       return state;
